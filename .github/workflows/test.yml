@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  cask:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: tap
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/slow-ball"
+          ln -s "$PWD" "$(brew --repository)/Library/Taps/slow-ball/homebrew-tap"
+      - name: style and audit
+        run: |
+          brew style slow-ball/tap
+          brew audit --cask --online slow-ball/tap/zapret
+      - name: install and uninstall
+        run: |
+          brew install --cask slow-ball/tap/zapret
+          test -d /Applications/zapret.app
+          codesign -v --deep /Applications/zapret.app
+          brew uninstall --cask slow-ball/tap/zapret
+          ! test -d /Applications/zapret.app
