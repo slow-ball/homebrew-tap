@@ -4,7 +4,7 @@ cask "zapret" do
 
   url "https://github.com/slow-ball/zapret-discord-youtube-macos/releases/download/v#{version}/zapret.dmg"
   name "zapret"
-  desc "YouTube, Discord and Telegram on macOS with automatic strategy selection"
+  desc "Keeps YouTube, Discord and Telegram working, picking the best strategy itself"
   homepage "https://github.com/slow-ball/zapret-discord-youtube-macos"
 
   livecheck do
@@ -12,7 +12,7 @@ cask "zapret" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "zapret.app"
 

@@ -14,13 +14,19 @@ jobs:
         run: |
           mkdir -p "$(brew --repository)/Library/Taps/slow-ball"
           ln -s "$PWD" "$(brew --repository)/Library/Taps/slow-ball/homebrew-tap"
+      # what a user without trust gets: recent Homebrew ignores untrusted taps
+      - name: install without trust
+        continue-on-error: true
+        run: brew install --cask slow-ball/tap/zapret
+      - name: trust
+        run: brew trust --cask slow-ball/tap/zapret
       - name: style and audit
         run: |
           brew style slow-ball/tap
           brew audit --cask --online slow-ball/tap/zapret
       - name: install and uninstall
         run: |
-          brew install --cask slow-ball/tap/zapret
+          brew list --cask zapret 2>/dev/null || brew install --cask slow-ball/tap/zapret
           test -d /Applications/zapret.app
           codesign -v --deep /Applications/zapret.app
           brew uninstall --cask slow-ball/tap/zapret
