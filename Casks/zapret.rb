@@ -2,10 +2,10 @@ cask "zapret" do
   version "4.0.1"
   sha256 "33d1c66d43d9f1e15dd85278b65cf34a24dbd4c400121f0c932d27b7874f94fd"
 
-  url "https://github.com/slow-ball/zapret-discord-youtube-macos/releases/download/v#{version}/zapret.dmg"
+  url "https://github.com/slow-ball/zapret-macos/releases/download/v#{version}/zapret.dmg"
   name "zapret"
   desc "Keeps YouTube, Discord and Telegram working, picking the best strategy itself"
-  homepage "https://github.com/slow-ball/zapret-discord-youtube-macos"
+  homepage "https://github.com/slow-ball/zapret-macos"
 
   livecheck do
     url :url
