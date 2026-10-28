@@ -1,6 +1,6 @@
 cask "zapret" do
-  version "4.0.0"
-  sha256 "912e3e26441f08c1eca8ae01435cad75888b2a5da584dfaadfc7ed3058863c52"
+  version "4.0.1"
+  sha256 "33d1c66d43d9f1e15dd85278b65cf34a24dbd4c400121f0c932d27b7874f94fd"
 
   url "https://github.com/slow-ball/zapret-discord-youtube-macos/releases/download/v#{version}/zapret.dmg"
   name "zapret"
