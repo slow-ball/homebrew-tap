@@ -7,7 +7,7 @@ on:
 
 jobs:
   cask:
-    runs-on: macos-latest
+    runs-on: macos-15-intel
     env:
       # audit --online asks the GitHub API: without a token the shared runner address runs out of requests
       HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
